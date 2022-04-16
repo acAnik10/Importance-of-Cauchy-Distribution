@@ -1,9 +1,6 @@
 #=============================
 # DISSERTATION: Simulation_02
 #=============================
-setwd("E:/St. Xavier's College/DISSERTATION")
-getwd()
-
 library(ggplot2)
 library(dplyr)
 
