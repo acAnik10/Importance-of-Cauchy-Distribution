@@ -1,0 +1,491 @@
+\documentclass[12pt, fleqn, a4paper]{article}
+
+\usepackage[top = 1in, bottom = 1in, right = 1in, left = 1in] {geometry}
+
+\usepackage{tikz, float, amsmath, amssymb, amsthm, mathtools, ragged2e, hyperref, graphicx, bm, listings, enumitem, caption, 
+accents}
+\usetikzlibrary{calc}
+
+\renewcommand{\listfigurename}{Plots}
+\renewcommand{\lstlistlistingname}{Codes}
+\newcommand{\chy}{\(\mathit{C}(\mu, \sigma)\) }
+
+% Double Spacing
+\usepackage{setspace} \doublespacing
+
+% Times New Roman
+\usepackage{mathptmx}
+
+% Vector
+\def\curl#1{\underaccent{\tilde}{#1}}
+
+% Appendix (R Code)
+\renewcommand{\lstlistingname}{Code}
+\lstdefinestyle{codestyle}{
+	backgroundcolor = \color[HTML]{EFFFFD},
+	basicstyle = \ttfamily \small \color[HTML]{2D31FA},
+	keywordstyle = \color[HTML]{2666CF},
+	commentstyle = \color[HTML]{2FA4FF},
+	numbers = left,
+	tabsize = 2,
+	showstringspaces = false,
+	breaklines = true
+}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{tikzpicture}
+			[remember picture, overlay] \draw[line width = 2pt] 
+			($(current page.north west) + (0.6in,-0.6in)$) rectangle ($(current page.south east) + (-0.6in,0.6in)$);
+		\end{tikzpicture}
+	
+	\begin{spacing}{1}
+		\begin{center}
+			\LARGE \textbf{Importance of Cauchy Distribution \\ in the Field of Statistics} \\[5pt]\line(1,0){400}
+			\vfill%\vspace{8pt}
+			\begin{figure}[H] \centering
+				\includegraphics[width=0.4\linewidth]{College_Logo.png}
+			\end{figure} \vfill
+			\renewcommand{\arraystretch}{1.2} \large \centering
+			\begin{tabular}{l}
+				\textbf{Name:} Anik Chakraborty \\
+				\textbf{Roll No.:} 443 \\
+				\textbf{Registration No.:} A01-1112-0838-19 \\
+				\textbf{Paper Code:} HSTDS6043D \\
+				\textbf{Department:} Statistics \\ 
+				\textbf{Session:} 2019 - '22 \\ 		
+				\textbf{Supervisor:} Prof. Ayan Chandra \\
+				St. Xavier's College (Autonomous), Kolkata
+			\end{tabular}
+			\vfill \raggedright\textbf{\large Declaration} \\ [10pt]
+			\justifying\normalsize I affirm that I have identified all my sources and that no part of my dissertation paper uses unacknowledged materials. \\[25pt] 
+%			\begin{tabular}{ll}
+%				\textbf{Student's Signature:} & 
+%				\begin{minipage}{.3\textwidth}
+%					\includegraphics[width=\linewidth]{Signature.jpg}
+%				\end{minipage}
+%			\end{tabular}
+			\textbf{Student's Signature:} \line(1,0){150}
+			\hfill \textbf{Date:} \line(1,0){80} \\%[5pt]
+		\end{center}
+	\end{spacing}
+	\end{titlepage}
+
+	\begin{spacing}{2}
+		\pagenumbering{roman}
+		\tableofcontents \newpage
+		\listoffigures
+		\lstlistoflistings
+	\end{spacing}
+
+	\newpage 
+	\phantomsection
+	\addcontentsline{toc}{section}{Introduction}
+	\setcounter{page}{1}
+	\pagenumbering{arabic} 
+	
+	\centering \null \vfill
+	\textbf{\LARGE Introduction} \\ \justifying
+	\paragraph{} Cauchy distribution is an interesting and widely practiced concept in Statistical field. The notion of this distribution comes from the field of Physics and many mathematicians were also involved in developing this distribution. Thus, it is not that the distribution has come solely from Statistical background. 
+	\paragraph{} In many applications of Physics Cauchy distribution is widely used, in Economical development and modeling there is a huge impact of this distribution. Uses of Cauchy distribution being multidisciplinary make it so popular. It has been used in many applications such as mechanical and electrical theory, physical anthropology, measurement problems, risk and financial analysis. It was also used to model the points of impact of a fixed straight line of particles emitted from a point source.
+	\paragraph{} Some interesting characteristics make this distribution unique and also make people attracted towards this theoretical distribution. Here, the properties have been studied using analytical and graphical approach. Simulation is done as and when needed. Thus, we have tried to study the Cauchy distribution in a descriptive way. 
+	\vfill \null 
+	\paragraph{} 
+	
+	\newpage
+	\section{Research Idea}
+	\subsection{Background}
+	\paragraph{} Cauchy distribution is a well known theoretical distribution which also has a major importance in the statistical study aspects. Let us look what is actually meant by a theoretical distribution and the purpose of developing the notions of probability distributions.
+	
+	\subsubsection*{What is a Theoretical Distribution?}
+	\paragraph{} In order to simplify the mathematical treatment of population distributions, we take the PMF or PDF to be a sufficiently simple form. Distributions defined in this way are called theoretical distributions because, they are ideal distributions that are hardly expected to reflect in toto the true nature of the population distribution. They are meant simply to give a fairly close approximation to the actual distribution of the variable in the population.
+	
+	\subsubsection*{Why do we need to study these?}
+	\paragraph{} In practice, we never observe probabilities - what we observe are nothing but the frequency distributions. Once we have, a frequency distribution at our disposal, we can readily construct the corresponding relative frequency distribution. These relative frequency distributions are good approximations of the corresponding probabilities, provided that the total frequency is large enough. 
+	\paragraph{} We have on the other hand, some theoretically developed probability distributions, known as \textbf{theoretical distributions} at our disposal. Once, we have a relative frequency distribution, we try to `match' it with these theoretical distributions. If it matches well with one of these theoretical distributions then the properties of that distribution may be applied to our relative frequency distribution as well. In fact, in this situation the data we have may be regarded as a sample drawn from that theoretical distribution.
+	
+	\subsection{Importance of the Study}
+	\paragraph{} The importance of the study lies in the fact that, Cauchy is a heavy-weight distribution in Statistical and also in many other fields. To study its characteristics will help us improve and make a clear idea about further scopes of this distribution. 
+	
+	\subsection{Objectives of the Study}
+	\paragraph{} The objective of the study is to grow more attention towards the Cauchy distribution which indirectly helps the Statisticians in inferential aspects and to aware people that normality assumptions may not hold good always.
+
+	\subsection{Scheme of Work}
+	\paragraph{} We first studied the different properties of this well known distribution that paves the path for further studies such as comparison with Normal, different estimation procedures under Cauchy population. 
+	
+	\section{Literature Review}
+	\paragraph{} In the history of Statistics, there has been a lot of great works involving the Cauchy distribution. Notable mathematicians, physicists, statisticians and people from other fields tried to study the nature of this popular probability distribution. 
+	\paragraph{} Daniel Bloch in his article `A Note on the Estimation of the Location Parameter of the Cauchy Distribution' described different procedures for estimating the location parameter of the Cauchy distribution. VD Barnett proposed the different estimators using the order statistics for Cauchy's location parameter in his article `Order Statistics Estimators of the Location of the Cauchy Distribution'.
+	
+	\newpage
+	\section{Cauchy Distribution}
+	\subsection{Description}
+	\subsubsection{Genesis}
+	\paragraph{} The Cauchy distribution, named after the French mathematician Augustin-Louis Cauchy, is a continuous probability distribution specially known for its \textbf{thicker tails} than the normal curve. The density function: \(\frac{1}{\pi(1+x^2)}\), commonly known as Cauchy density or more evidently the curves proportional to \(\frac{1}{x^2+a^2}\) have been studied in the mathematical world for over three centuries. 
+	\paragraph{} In this aspect the Cauchy density can be thought of as a special case of `Witch of Agnesi' derived from the name of Italian mathematician Maria Agnesi. She had discussed several properties of Cauchy curve and referred to it as `Witch'. Several notable persons including Pierre De Fermat, Sir Isaac Newton, Guido Grandi, Gottfried Leibniz also studiethe nature and behaviour of this curve.
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{01_genesis.jpeg}
+		\caption{\textbf{Nature of the curves of the form \(\mathbf{\frac{1}{x^2+a^2}}\)}}
+	\end{figure}
+	
+	\subsubsection{Background for developing Cauchy distribution}
+	\paragraph{} The idea of Cauchy distribution was initially developed by French mathematician and physicist Sim\'eon Denis Poisson who observed that the distribution with density \(\frac{1}{\pi(1+x^2)}\) has some peculiar properties. French mathematician  Legendre introduced the famous and widely used `Principle of Least Squares' with the assumption of ``normally distributed errors". Poisson showed Laplace's large sample justification of Legendre's Least Square Theory is not valid by presenting the characteristic function of the Cauchy distribution. 
+	\paragraph{} The distribution became associated with Augustin-Louis Cauchy as he responded to the criticism of Bienaym\'e's article showing Legendre's least-squares fails to provide ``the most probable results" in case of a interpolation method suggested by Cauchy as it does in case of normality of errors.
+	
+	\subsection{Probability Laws}
+	\paragraph{} Cauchy distribution is a theoretical distribution of an absolutely continuous random variable. It is mostly used for those random variables which are likely to produce extreme values. The Cauchy distribution with parameters `\(\mu\)' and `\(\sigma\)' is denoted by \chy.
+	
+	\subsubsection{Probability Density Function}
+	\paragraph{} The Probability Density Function (PDF) of \chy is given by, $$f(x)=\frac{1}{\pi}\frac{\sigma} {\left\{\sigma^2+(x-\mu)^2\right\}},\quad x\in\mathbb{R}$$
+	
+	\subsubsection{Cumulative Distribution Function}
+	\paragraph{} The Cumulative Distribution Function (CDF) of \chy is given by, $$F(x)=\frac{1}{2}+\frac{1}{\pi}\tan^{-1}\left(\frac{x-\mu}{\sigma}\right),\quad x\in\mathbb{R}$$ Here, \(\mu\in\mathbb R\) is the location parameter\\ \(\sigma>0\) is the scale parameter.
+	\paragraph{NOTE:} Here, \(\mu\) and \(\sigma\) are not the expectation and variance of the distribution. Though, we can think of a standardized Cauchy distribution by putting, \(\mu=0\) and \(\sigma=1\).
+	
+	\subsubsection{Visualizing PDF and CDF}
+	\begin{itemize}
+		\item The PDF of \chy for different choices of \(\mu\) and \(\sigma\) is plotted below: 
+		\begin{figure}[H] \centering
+			\includegraphics[width=0.6\linewidth]{02_PDF.jpeg}
+			\caption{\textbf{PDF of Cauchy distribution}}
+		\end{figure}
+		\item The CDF of \chy for different choices of \(\mu\) and \(\sigma\) is plotted below: 
+		\begin{figure}[H] \centering
+			\includegraphics[width=0.6\linewidth]{03_CDF.jpeg}
+			\caption{\textbf{CDF of Cauchy distribution}}
+		\end{figure}
+	\end{itemize}
+	
+	\subsection{Interesting Properties}
+	\subsubsection{Natrure of the Curve}
+	\paragraph{} The values of \(f(x)=\frac{1}{\pi} \frac{\sigma}{\left\{\sigma^2+(x-\mu)^2\right\}}\) are plotted against the values of \(x\), we get a graph as shown below - 
+	\begin{figure}[H] \centering
+		\includegraphics[width=0.8\linewidth]{04_NoC.jpeg}
+		\caption{\textbf{Shape of the \(\mathbf{\mathit{C}(0,1)}\) PDF}} 
+		\label{noc}
+	\end{figure}
+	From `Figure \ref{noc}', we observe that the graph is \underline{bell-shaped}, \underline{symmetric about \(\mu\)} and the tails of the distribution are \underline{much thicker}.
+	
+	\subsubsection*{Proof of Symmetry} \label{symmetry}
+	\paragraph{} A continuous random variable \(X\) with PDF, \(f(x)\) is said to have a symmetric distribution about the line `\(x=a\)' if, $$ f(a-x)=f(a+x),\;\forall\,x\in \mathbb{R} $$ Here, \(f(\mu-x)=\frac{1}{\pi} \frac{\sigma}{\left\{\sigma^2+x^2\right\}}=f(\mu+x),\; \forall\,x\in\mathbb{R}\) \\[15pt] Hence, \chy is symmetric about the line `\(x=\mu\)' i.e. about its location parameter.
+	
+	\subsubsection{Non-existence of Moments} \label{NEM}
+	\paragraph{} To check the existence of \(\mathrm{r^{th}}\) order moment of \chy, let us first find - 
+	\begin{align*}
+		E\left(\left|\frac{X-\mu}{\sigma}\right|^r\right)
+		&=\int\limits_{-\infty}^{\infty}\left|\frac{x-\mu}{\sigma}\right|^r\cdot \frac{1}{\pi} \frac{\sigma}{\left\{\sigma^2 +(x-\mu)^2\right\}}\,dx \\
+		&= \frac{1}{\pi}\int\limits_{-\infty}^{\infty} |z|^r \cdot\frac{1}{(1+z^2)}\,dz && \left[\text{substituting } \frac{x-\mu}{\sigma}=z \right] \\ 
+		&= \frac{2}{\pi}\int\limits_{0}^{\infty} \frac{z^r}{1+z^2}\,dz && [\because\text{integrand is an even function of z}] \\
+		&= \frac{1}{\pi}\int\limits_{0}^{\infty} \frac{u^{\frac{r+1}{2}-1}}{(1+u)^{\frac{r+1}{2}+\frac{1-r}{2}}}\,du && [\text{substituting }z^2=u]
+	\end{align*}
+	which converges, if and only if, \(r+1>0\) and \(1-r>0\), i.e. \(-1<r<1\) \\
+	Hence, \(E\left(\left|\frac{X-\mu}{\sigma}\right|^r\right)\) does not exist for \(r\geq1\). \\ As such, for Cauchy distribution the moments of order \(r\geq1\) do not exist. Consequently, the MGF of Cauchy distribution does not exist.
+	
+	\subsubsection*{Remark}
+	\paragraph{} Let us consider \(\mathit{C}(0,1)\) here. For some \(0<k<\infty\), 
+	\begin{align*}
+		E\left(|X|^r\right)&=\int\limits_{-\infty}^{\infty}\frac{|x|^r}{\pi(1+x^2)}\,dx \\
+		&=\int\limits_{|x|<k}\frac{|x|^r}{\pi(1+x^2)}\,dx\; + \int\limits_{|x|\geq k} \frac{|x|^r}{\pi(1+x^2)}\,dx \\ 
+		&=I_1 + I_2 && \ldots\ldots (*)
+	\end{align*} 
+	Note that, as the tails of Cauchy are thicker the propensity of producing extreme values (\(|x|\geq k\)) is high in this case i.e. the problem of `non-existence of moments' is associated with the integral \(I_2\). 
+	
+	\subsubsection*{\(\bullet\) Truncated Cauchy Distribution}
+	\paragraph{} We can get rid of the above problem if we consider the truncated symmetric Cauchy distribution i.e. if we take the support of the distribution to be \(-k<x<k\) for some \(0<k<\infty\). From (\(*\)) we can readily observe that, \(E\left(|X|^r\right)\) exists and converges to a finite value as \(I_2\) vanishes. 
+	\begin{figure}[H] \centering
+		\includegraphics[width=0.9\linewidth]{05_TrC.jpeg}
+		\caption{\textbf{Truncated and Standard Cauchy}}
+	\end{figure}
+	\paragraph{} Hence, all the moments exist for a truncated Cauchy distribution (truncated over a finite interval) and for this reason Cauchy and truncated Cauchy is interesting in the statistical field. 
+	
+	
+	\subsubsection{Quantile Measures}
+	\paragraph{} Let, \(\xi_p\) be the \(\mathrm{p^{th}}\) quantile of the \chy distribution. Then, 
+	\begin{align*}
+		& F(\xi_p)=p \\
+		& \implies \frac{1}{2}+\frac{1}{\pi}\tan^{-1}\left(\frac{\xi_p-\mu}{\sigma}\right)=p \\
+		& \implies \xi_p = \mu+\sigma\tan\left[\pi\left(p-\frac{1}{2}\right)\right] && \ldots\ldots (**)
+	\end{align*}
+	From \((**)\) - \\
+	For \(p=\frac{1}{2}\), median \(=\xi_\frac{1}{2}=\mu\) and for \(p=\frac{1}{4},\;Q_1=\xi_\frac{1}{4}=\mu-\sigma\) \\ From symmetry, \(Q_3=\mu+\sigma\) \\[10pt]
+	The quartile deviation is \(\frac{Q_3-Q_1}{2}=\sigma\)
+	
+	\subsubsection{Mode}
+	\paragraph{} From `Figure \ref{noc}', we can see that the Cauchy distribution is \underline{unimodal} and the mode is at \(x=\mu\). The mathematical justification is as follows: 
+	\begin{align*}
+		f(x)&=\frac{1}{\pi}\frac{\sigma} {\left\{\sigma^2+ (x-\mu)^2\right\}} \\
+		f'(x)&=-\frac{2(x-\mu)}{\sigma^2+(x-\mu)^2}\cdot f(x)
+	\end{align*}
+	Now, \(f'(x)\gtrless0\) according as \(x\lessgtr\mu\) since \(f(x)>0,\;\forall\,x\) \\ Hence, the mode of the distribution is at \(x=\mu\) and the modal value is \(f(\mu)=\frac{1}{\pi\sigma}\).
+	
+	\subsubsection{Points of Inflection}
+	\paragraph{Definition:} The point on a curve where it changes from concavity to convexity or vice-versa is called a point of inflection. 
+	\paragraph{} In other words, at the points of inflection, the rate of change of slope of that curve changes. Now, 
+	\[f''(x)=\frac{3(x-\mu)^2-\sigma^2}{\left[\sigma^2+(x-\mu)^2\right]^2}\cdot f(x)\begin{dcases}
+		> 0, & \text{if } x<\mu-\frac{\sigma}{\sqrt3}\\
+		< 0, & \text{if } \mu-\frac{\sigma}{\sqrt3}\leq x\leq \mu+\frac{\sigma}{\sqrt3}\\
+		> 0, & \text{if } x>\mu+\frac{\sigma}{\sqrt3}
+	\end{dcases}\] 
+	Hence, the points of inflection of the Cauchy distribution are \(\left(\mu-\frac{\sigma}{\sqrt{3}}, \frac{3}{4\pi \sigma}\right)\) and \(\left(\mu+\frac{\sigma}{\sqrt{3}}, \frac{3}{4\pi\sigma}\right)\). 
+	\begin{figure}[H] \centering
+		\includegraphics[width=0.9\linewidth]{06_PoI.jpeg}
+		\caption{\textbf{Points of Inflection of Standard Cauchy}}
+	\end{figure}
+	For \(\mathit{C}(0,1)\) the points of inflection are (-0.577, 0.239) and (0.577, 0.239) i.e. at these points the curve changes from concavity to convexity and vice-versa.
+	
+	\subsection{Sampling Properties}
+	\begin{itemize}
+		\item $ \bm{X\sim\mathit{C}(0,1)\implies \frac{1}{X} \sim\mathit{C}(0,1)} $
+		\begin{proof}
+			Let, \(g(\cdot)\) be the PDF of \(Y=\frac{1}{X}\). \\ Jacobian of the transformation is \(\left|\frac{\partial x}{\partial y}\right|= \frac{1}{y^2}\) and \(y\in\mathbb{R}\) \\ Then, the PDF of \(Y\) is given by, 
+			\begin{align*}
+				g(y)&=f\left(\frac{1}{y}\right)\cdot\left|\frac{\partial x}{\partial y}\right|,\qquad y\in\mathbb{R} && [f(\cdot) \text{ is the PDF of } X]\\
+				&=\frac{1}{\pi\left(1+\frac{1}{y^2}\right)}\cdot\frac{1}{y^2},\qquad y\in\mathbb{R} \\
+				&=\frac{1}{\pi(1+y^2)},\qquad y\in\mathbb{R}
+			\end{align*}
+			Hence, if \(X\) is a random variable having a \(\mathit{C}(0,1)\) distribution then \(\frac{1}{X}\) also have the identical distribution.
+		\end{proof}
+		The above property is visualized below:
+		\begin{figure}[H] \centering
+			\includegraphics[width=0.75\linewidth]{07_Inv.jpeg}
+			\caption{\textbf{X and $\mathbf{\frac{1}{X}}$ are Identically Distributed}}
+		\end{figure}
+		
+		\item $ \bm{X,Y\stackrel{iid}{\sim}\mathit{C}(0,1) \implies X+Y\stackrel{D}{\equiv}2X\sim \mathit{C}(0,2)} $
+		\begin{proof}
+			Let, \(F(\cdot)\) be the common CDF of \(X,Y\). \\ Now, using Additive property of Cauchy distribution (proof given in Appendix \ref{adprop}),  $$X+Y\sim\mathit{C}(0,2)\qquad\ldots\,(i)$$ Again, let \(G(\cdot)\) be the CDF of \(U=2X\). Then, for \(u\in\mathbb{R}\)
+			\begin{align*}
+				G(u)&=P(U\leq u) \\
+				&=P(2X\leq u) \\
+				&=F\left(\frac{u}{2}\right) \\
+				&=\frac{1}{2}+\frac{1}{\pi}\tan^{-1}\left(\frac{u}{2}\right)
+			\end{align*}
+			Hence, \(2X\sim\mathit{C}(0,2)\)\hspace{30pt} $\ldots\,(ii)$ \\ From \((i)\) and \((ii)\), \(X+Y\stackrel{D}{\equiv}2X\sim\mathit{C}(0,2)\)
+		\end{proof}
+	This property does not hold in general for any distribution. As such, this is a unique and an interesting property of Cauchy distribution. Also, we can justify from this property that Cauchy distribution has no finite variance. 
+	\subsubsection*{[ Justification}
+	\paragraph{} If possible, let \(Var(X)=Var(Y)=\sigma^2< \infty\)\quad [Here, \(\sigma^2>0\) as Cauchy is not degenrated] \\ Again, we have \(X+Y\stackrel{D}{\equiv}2X\).
+	\\ Then, \(X+Y\) and \(2X\) will have the same variance which gives us \(4\sigma^2=2\sigma^2\). \\ Now, this is only possible if: \(\sigma^2=+\infty\) or \(\sigma^2=0\) \\
+	Hence, \(\sigma^2=+\infty\)\qquad \((\because\sigma^2>0)\). \\ This justifies that the fact that the variance of Cauchy is not finite. \textbf{]} \\
+	The above property is visualized below: 
+	\begin{figure}[H] \centering
+		\includegraphics[width=0.9\linewidth]{08_Idt.jpeg}
+		\caption{\textbf{X+Y and 2X are Identically Distributed}}
+	\end{figure}
+	\end{itemize}
+	
+	\newpage
+	\section{Cauchy and Normal Distribution}
+	\subsection{Why do we need Cauchy apart from Normal?}
+	\paragraph{} In Parametric Inference, we usually use Normal as our Parent distribution and derive test rules, confidence intervals based on the assumption that normality holds everywhere. But in practice, this is not the case always as in most of the real life problems `Normality Assumption' will lead us to erroneous conclusions. 
+	\paragraph{} Cauchy distribution is such a distribution which may not be used frequently to deal with the real world problems but can make us understand the fact that assumption of normal laws cannot yield satisfactory results always, in the domain of Parametric Inference only. That is why, the Cauchy distribution is so much important in inferential statistics apart from the Normal distribution. 
+	
+	\subsection{Comparison of Cauchy \& Normal Distribution}
+	\paragraph{} Let us consider two random variables \(X\) and \(Y\) where, \(X\sim N(0,1)\) and \(Y\sim C(0,1)\). Their PDFs are respectively given by, \(f_X(t)=\frac{1}{\sqrt{2 \pi}}\,e^{-\frac{t^2}{2}}\) and \(f_Y(t)=\frac{1}{\pi (1+t^2)}\), \(t\in\mathbb{R}\). Then, 
+	\begin{enumerate}[label = (\alph*)]
+		\item \(\max\limits_{t\in\mathbb{R}}f_X(t)=\frac{1} {\sqrt{2\pi}}=f_X(0)\) and \(\max\limits_{t\in \mathbb{R}}f_Y(t)=\frac{1}{\pi}=f_Y(0)\) \\
+		\(\implies f_X(0)>f_Y(0)\)
+		\begin{figure}[H] \centering
+			\includegraphics[width=0.65\linewidth]{09_CN.jpeg}
+			\caption{\textbf{Densities of Cauchy and Normal}}
+			\label{CN}
+		\end{figure}
+	
+		\item Both Cauchy and Normal distribution are symmetric about `0'.\\ But \(E(X)\) = median = mode = 0 for \(X\) whereas median = mode = 0 but \(E(X)\) does not exist for \(Y\).
+		
+		\item \(f_X(t)=\frac{1}{\sqrt{2 \pi}}\,e^{-\frac{t^2} {2}}\) decreases to `0' more rapidly than \(f_Y(t)= \frac{1}{\pi (1+t^2)}\), as \(|t|\to\infty\).
+		
+		\item Here, from `Figure \ref{CN}' observe that, \(P(|X|>k)<P(|Y|>k),\;\forall\,k>0\). \\
+		As Cauchy has thick tails compared to Normal distribution and this is the reason of non-existence of moments of Cauchy distribution (discussed in subsection \ref{NEM}). 
+	\end{enumerate}
+	
+	\subsection{A Simulation Study}
+	\subsubsection*{Objective}
+	\paragraph{} Here, for comparison, we ran a simulation to check how the empirical level behaves if we draw samples from Cauchy and consider a testing problem on the basis of normality assumption. 
+	
+	\subsubsection*{Results and Comments}
+	\paragraph{} The results are given in the following table - 
+	\begin{table}[H] \centering
+		\caption{\textbf{Empirical Levels}}
+		\label{emp.lvl}
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{|r|r|r|}
+			\hline
+			\textbf{Sample Size} & \textbf{Cauchy} & \textbf{Normal}\\
+			\hline
+			5 & 0.529 & 0.037\\
+			\hline
+			10 & 0.661 & 0.054\\
+			\hline
+			25 & 0.745 & 0.055\\
+			\hline
+			50 & 0.833 & 0.046\\
+			\hline
+			100 & 0.878 & 0.055\\
+			\hline
+			200 & 0.908 & 0.051\\
+			\hline
+			500 & 0.949 & 0.042\\
+			\hline
+			1000 & 0.960 & 0.050\\
+			\hline
+		\end{tabular}
+	\end{table}
+	From `Table \ref{emp.lvl}', it can be observed that, under normality assumptions, the Cauchy distribution is behaving badly. 
+	
+	\newpage
+	\section{Estimation under Cauchy Population}
+	\subsection{Unbiasedness}
+	\paragraph{} We know that, `sample mean is an unbiased estimator of the population mean' but in case of Cauchy distribution the population mean itself does not exist. So, we cannot use the fact here. Instead of this, for Cauchy distribution sample median can be used as a suitable estimate of the location parameter. 
+	\paragraph{} Let us consider a random sample of size \(n=2k+1,\,k\in\mathbb{Z}\) from \chy distribution. The population distribution is symmetric about \(\mu\) (proof in subsection \ref{symmetry}). \\ Hence, \(f(\mu-x)=f(\mu+x)\) and \(F(\mu-x)=1- F(\mu+x),\:\forall\,x\in\mathbb{R}\). \\
+	The PDF of \(\mathrm{(k+1)^{th}}\) order statistics is given by, $$ f_{X_{(k+1)}}(x)=\frac{(2k+1)!}{k!\: k!}\,\{F(x)\}^k\,f(x)\,\{1-F(x)\}^k,\quad x\in \mathbb{R} $$ Note that, \(X_{(k+1)}\) is the sample median of the sample of size \((2k+1)\). Now, 
+	\begin{align*}
+		f_{X_{(k+1)}}(\mu-x)&=\frac{(2k+1)!} {k!\:k!}\,\{F(\mu-x)\}^k\,f(\mu-x)\,\{1-F(\mu-x)\}^k \\
+		&=\frac{(2k+1)!}{k!\:k!}\,\{1-F(\mu+x)\}^k\,f(\mu+x)\,\{F(\mu+x)\}^k \\
+		&=f_{X_{(k+1)}}(\mu+x)
+	\end{align*}
+	Hence, the distribution of the sample median of odd sample size is symmetric about \(x=\mu\). Also, the quantile measures exist for all the distributions and hence \(E\left[X_{(k+1)}\right]\) exists and is finite. \\
+	We have for any symmetric distribution, mean of that distribution is the point of symmetry, if the expectation is finite. (proof in appendix \ref{exp_sym}) \\
+	Hence, here \(E\left[X_{(k+1)}=\mu\right]\) \\
+	Thus, if the sample size is odd then the sample median is an unbiased estimator of the location parameter for Cauchy distribution.
+	
+	\subsubsection*{Sample Mid-range}
+	\paragraph{} Here, \(X_i\)'s have distributions symmetric about \(\mu\). Hence, for \(i=1,2,\ldots, n\), 
+	\begin{align*}
+		P(\mu-X_i\leq y)&=P(X_i\geq\mu-y) \\
+		&=P(X_i\leq\mu+y) && [\text{Due to symmetry}] \\
+		&=P(X_i-\mu\leq y)
+	\end{align*}
+	Thus, \(\mu-X_i\stackrel{D}{\equiv}X_i-\mu,\; i=1,2,\ldots,n\). \\[8pt] Hence, 
+	\(\max\limits_{i=1(1)n}\{\mu-X_i\}\stackrel{D}{\equiv}\max\limits_{i=1(1)n}\{X_i-\mu\}\) i.e. \(\mu-X_{(1)} \stackrel{D}{\equiv}X_{(n)}-\mu\) \\[8pt]
+	Hence, \(E\left[\mu-X_{(1)}\right]=E\left[ X_{(n)}-\mu\right]\) \\[8pt] Thus, \(E\left[\frac{X_{(1)}+X_{(n)}}{2}\right]=\mu\). \\[10pt] Hence, for Cauchy distribution sample mid-range can also be considered as an unbiased estimator of the location parameter. 
+	
+	\subsubsection*{Some Other Estimators}
+	\paragraph{} `Quick Estimators' can be considered as an estimator of the location parameter of the Cauchy distribution. A quick estimator is the weighted average (can be thought as a linear combination) of some order statistics. 
+	\paragraph{} Another good estimator of the location parameter of Cauchy is the trimmed mean. It used the central 24\% of the sample order statistics and can be considered as a better estimator than the sample median. 
+	\paragraph{} In the above cases, our target is to minimize the Asymptotic Relative Efficiency (A.R.E.) of the concerned estimator with respect to the best estimator. 
+	
+	\newpage	
+	\subsection{Consistency}
+	\paragraph{} As the Expectation of Cauchy does not exist, we cannot use Khintchine's Weak Law of Large Numbers to say that `Sample Mean is a consistent estimator of the Population Mean'. In case of Cauchy, sample median, as a robust estimator becomes consistent for the location parameter of the Cauchy distribution. 
+	\paragraph{} Let, us visualize this graphically:
+	\begin{figure}[H] \centering
+		\includegraphics[width=\linewidth]{Sim_02.jpeg}
+		\caption{\textbf{Comparison of Sample Mean and Sample Median}}
+		\label{con}
+	\end{figure}
+	From `Figure \ref{con}' we observe that, sample median converges to $ \mu $ in probability, more rapidly than sample mean which indicates that Sample median is better in terms of consistency than sample mean in case of Cauchy. 
+	\paragraph{} Also, note that as we increase the scale parameter, more sample size is required to converge in probability for sample median.
+
+	\subsection{Cramer-Rao Inequality}
+	\paragraph{} Consider, the family \(\{C(\theta,1):\theta\in \mathbb{R}\}\) of Cauchy distributions which satisfies all the regularity conditions required for Cramer-Rao Inequality. (The conditions are given in appendix \ref{CR}).
+	$$ \text{Here, }f(x;\theta)=\frac{1}{\pi\{1+(x-\theta)^2\}} ,\quad x\in\mathbb{R},\;\theta\in\mathbb{R} $$ The support \(S=\mathbb{R}\) is independent of \(\theta\) and the parameter space \(\Omega=\mathbb{R}\) is an open interval. It also satisfies the other regularity conditions. \\
+	Hence, the Cramer-Rao Inequality exists for \(\{C(\theta,1) :\theta\in\mathbb{R}\}\). \\ \(\therefore\) The Cramer-Rao Inequality for the variance of an unbiased estimator \(T\) of \(\theta\) is given by, $$ Var(T)\geq \frac{1}{I_n (\theta)}=\frac{1}{nI_1(\theta)} $$ 
+	Now, \(\dfrac{\partial}{\partial\theta}\ln f(x;\theta)=\dfrac{2(x-\theta)}{1+(x-\theta^2)}\)
+	\begin{align*}
+		I_1(\theta)&=E\left[\frac{\partial}{\partial \theta}\ln f(x;\theta)\right]^2 \\
+		&=\int\limits_{-\infty}^\infty\frac{4(x-\theta)^2} {\{1+(x-\theta)^2\}^2}\cdot \frac{dx}{\pi \{1+(x-\theta)^2\}} \\
+		&=\frac{4}{\pi}\int\limits_{-\infty}^\infty\frac{u^2}{(1+u)^3}\,du && [u=x-\theta] \\
+		&=\frac{8}{\pi}\int\limits_{0}^\infty\frac{u^2}{(1+u)^3}\,du && [u=x-\theta] \\
+		&=\frac{4}{\pi}\int\limits_{0}^\infty\frac{t^{\frac{3}{2}-1}}{(1+t)^{\frac{3}{2}+\frac{3}{2}}}\,dt && [t=u^2]\\
+		&=\frac{4}{\pi}\cdot\text{B}\left(\frac{3}{2},\frac{3}{2}\right) \\
+		&=\frac{1}{2}
+	\end{align*}
+	Hence, the Cramer-Rao Inequality reduces to, $$ Var(T)\geq \frac{2}{n} $$ As \(\{C(\theta,1):\theta\in \mathbb{R}\}\) does not belong to One Parameter Exponential Family, the equality does not hold in Cramer-Rao Inequality i.e. there is no MVBUE for any parametric function \(\psi(\theta)\). \\
+	Here, \(\{C(\theta,1):\theta\in \mathbb{R}\}\) is a regular family in the sense that Cramer-Rao Inequality holds for this family but the Cramer-Rao Lower Bound is not an attainable lower bound. 
+	
+	\subsection{Maximum Likelihood Estimation}
+	\paragraph{} Suppose, \(X_1,X_2,\ldots,X_n\) be a random sample of size \(n\) from \(C(\theta,1)\) distribution. To find the Maximum Likelihood Estimator of the parameter \(\theta\) on the basis of the above sample: \\
+	The PDF of \(X\) is given by, $$ f(x)=\frac{1}{\pi\left\{1+ (x-\theta)^2\right\}},\quad x\in\mathbb{R},\;\theta\in \mathbb{R} $$ Given \((X_1,X_2,\ldots,X_n)=(x_1,x_2, \ldots,x_n)\) the likelihood function of \(\theta\) is given by, $$ L(\theta\mid \curl{x})=\frac{1}{\pi^n\prod \limits_{i=1}^{n}\left\{1+(x_i-\theta)^2\right\}},\quad
+	\theta\in\mathbb{R} $$ The log-likelihood function is given by, $$ \ln L(\theta)=-n\ln\pi+\sum_{i=1}^{n}\ln\left\{1+ (x_i-\theta)^2\right\} $$ Let, \(\hat{\theta}\) be the MLE of \(\theta\). Hence, we have, $$ \frac{\partial}{\partial \theta}\ln L(\theta)\;\vrule_{\;\theta=\hat{\theta}}= \sum_{i=1}^n \left\{\frac{2(x_i-\theta)}{1+(x_i-\theta)^2} \right\} \;\vrule_{\;\theta=\hat{\theta}}=0\qquad\ldots\, (I) $$ Now, we will find \(\hat{\theta}\) iteratively as a root of the equation \((I)\). \\ Let, \(\theta_0=\) median (\(\curl{x}\)) is an initial solution of \((I)\).
+	By Taylor's expansion we have, 
+	\[\frac{\partial}{\partial\theta}\ln L(\theta)\;\vrule_{ \;\theta=\theta_0}+\left(\hat{\theta}-\theta_0\right)\frac{\partial^2}{\partial\theta^2}\ln L(\theta)\;\vrule_{\; \theta= \theta_0}\simeq0 \qquad \text{[ we ignore the higher order terms ]}\] Let, the first approximation of \(\hat{\theta}\) be \(\hat{\theta}^{(1)}\). Then, 
+	\begin{align*}
+		&\quad\hat{\theta}^{(1)}\simeq\theta_0+\frac{\frac{\partial}{\partial\theta}\ln L(\theta)\;\vrule_{ \;\theta=\theta_0}}{I(\theta_0)}&&\left[\text{where, }I(\theta)=\frac{n}{2}\right] \\
+		\text{Again, }&\quad \hat{\theta}^{(2)}\simeq\hat{\theta}^{(1)}+\frac{\frac{\partial}{\partial\theta}\ln L(\theta)\;\vrule_{ \;\theta=\hat{\theta}^{(1)}}}{I(\hat{\theta}^{(1)})}
+	\end{align*}
+	The above procedure is repeated until the desired level of convergence is attained.
+	
+	\section{Conclusion}
+	\paragraph{} Cauchy distibution is a huge topic. Here, we considered some of its interesting properties along with different estimation procedures briefly in analytical and graphical approach. While doing the project, we observe that, estimation of the location parameter of the Cauchy distribution is not an easy task, be it unbiasedness or maximum likelihood estimation as we cannot use any moment estimator. 
+	\paragraph{} In one hand, the thick tails of this distribution make it an `outlier producing distribution' while on the other hand as the moment estimates cannot be found we can indulge ourselves in quantile measures only and study their properties thoroughly which is a good aspect indeed. 
+	\paragraph{} Thus, there are many future aspects of this project as we can dive deep into the estimation for Cauchy distribution. There are further scopes of doing research based projects on the impact of Cauchy distribution as one can try to estimate the scale parameter, multivariate Cauchy parameters, testing procedures and confidence intervals etc. 
+	
+	\newpage
+	\section{Appendix}
+	\subsection{Additive Property of Cauchy Distribution} \label{adprop}
+	\begin{proof}
+		Let, \(X_1,X_2\) be a random sample from \(C(0,1)\) distribution. Their joint PDF is given by, 
+		$$ f(x_1,x_2)=\frac{1}{\pi^2(1+x_1^2)(1+x_2^2)},\quad x_1,x_2 \in\mathbb{R} $$ Let, \(U=X_1+X_2,\;V=X_2\) \\
+		Then, \(X_1=U-V,\;X_2=V\) and the jacobian of the transformation is 1. \\ 
+		The joint PDF of \((U,V)\) is given by, 
+		$$ g(u,v)=\frac{1}{\pi^2\{1+(u-v)^2\}(1+v^2)},\quad u,v\in \mathbb{R} $$ 
+		\(\therefore\) For \(u\in\mathbb{R}\) the marginal PDF of \(U\) is, 
+		\begin{align*}
+			h(u)&=\int\limits_{-\infty}^\infty \frac{1}{\pi^2\{1+(u-v)^2\}(1+v^2)}\,dv \\
+			&=\int\limits_{-\infty}^\infty\frac{1}{\pi^2u^2(u^2+4)}\left\{\frac{2uv}{1+v^2}+\frac{u^2}{1+v^2}+\frac{2u(u-v)}{1+(u-v)^2}+\frac{u^2}{1+(u-v^2)}\right\} \,dv \\
+			&=\frac{1}{\pi^2u^2(u^2+4)}\left[u\ln\left\{\frac{1+v^2}{1+(u-v)^2}\right\}+u^2\left\{\tan^{-1}v-\tan^{-1}(u-v)\right\}\right]^\infty_{-\infty} \\
+			&=\frac{1}{\pi^2u^2(u^2+4)}\cdot u^2\cdot2\pi\\
+			&=\frac{2}{\pi(u^2+4)}
+		\end{align*}
+		Thus, \(U=X_1+X_2\sim C(0,2)\) \\
+		Hence, the proof.
+	\end{proof}
+	
+	\subsection{Regularity Conditions}\label{CR}
+	\paragraph{} Let $X$ has a distribution from $\{f(x;\theta):\theta\in\Omega\}$ satisfying the following \underline{regularity conditions} - 
+	\begin{enumerate}[label = (\roman*)] 
+		\setlength{\itemsep}{0.7em}
+		\item The parameter space, $\Omega$ is an open interval in $\mathbb{R}$ i.e. $\Omega=\{\theta:a<\theta <b\}$
+		\item The support, $S=\{x:f(x;\theta)>0\}$ is independent of $\theta$ 
+		\item For each $x\in S,\frac{\partial} {\partial\theta}\big[\ln f(x;\theta)\big]$ exists and finite
+		\item The identity ``$\sum\limits_{x\in S}f(x;\theta)=1$" or ``$\int\limits_S f(x;\theta)dx=1$" can be differentiated under the summation or integral sign.
+		\item $T\in U_\psi=\Big\{T(X):E_\theta\big[T(X)\big]=\psi(\theta), Var_\theta\big[T(X)\big]<\infty,\forall\theta\in\Omega\Big\}$ is an UE of $\psi(\theta)$ such that the derivative of $\psi(\theta)=E\big[T(X)\big]$ with respect to $\theta$ can be evaluated by differentiating under the summation or integral sign.
+	\end{enumerate} \vspace{2mm}
+%	Then, $Var\big[T(X)\big]\geq \frac{\{\psi'(\theta)\}^2}{I(\theta)}$ where $I(\theta)=E\left[\frac{\partial}{\partial\theta}\big\{\ln f(x;\theta)\big\}\right]^2>0$ \\ This is the Cramer-Rao Inequality.
+	
+	\subsection{Expectation and Symmetry} \label{exp_sym}
+	\begin{proof}
+		Let, the random variable \(X\) has a continuous distribution symmetric about the line \(x=a\) with PDF \(f(\cdot)\). Then, we have, \(f(a-x)=f(a+x),\:\forall\,x\in \mathbb{R}\). Now, 
+		\begin{align*}
+			E(X-a)&=\int_{-\infty}^\infty(x-a)f(x)dx \\
+			&=\int_{-\infty}^a(x-a)f(x)dx+\int_{a}^\infty(x-a)f(x)dx \\
+			&=\int_{0}^\infty-uf(a-u)du+\int_{0}^\infty vf(a+v)dv \\
+			&=-\int_{0}^\infty uf(a-u)du+\int_{0}^\infty vf(a-v)dv \\
+			&=\begin{dcases}
+				0, & \text{if }E(X)\text{ exists then }\int_{0}^\infty xf(a-x)dx \text{ is finite.}\\
+				-\infty+\infty, & \text{if }E(X)\text{ does not exist then }\int_{0}^\infty xf(a-x)dx=+\infty
+			\end{dcases}
+		\end{align*}
+		Hence, Expectation, if exists is the point of symmetry for a symmetric distribution.
+	\end{proof}
+		
+	\newpage
+	\subsection{R Codes}
+	\begin{spacing}{1.1}
+		\lstinputlisting[language = R, caption = {\textbf{Cauchy and Normal}}, style = codestyle] {Dissertation_Sim_01.R}
+		\vspace{20pt}
+		\lstinputlisting[language = R, caption = {\textbf{Convergence in Cauchy}}, style = codestyle] {Dissertation_Sim_02.R}
+%	\lstinputlisting{}
+	\end{spacing}
+
+	\newpage
+	\centering \phantomsection
+	\addcontentsline{toc}{section}{Acknowledgement} 
+	\null\vfill
+	\textbf{\Large Acknowledgement}
+	\paragraph{} \justifying 
+	I would like to express my special gratitude to Father Principal Rev. Dr. Dominic Savio, Sj. and the Department of Statistics who gave the golden opportunity to do this wonderful project on `Importance of Cauchy Distribution in the Field of Statistics'. I would also like to thank my supervisor and dissertation guide Professor Ayan Chandra for his guidance throughout the duration of completion of my project. I am also very much grateful to all my respected professors of the St. Xavier’s College Statistics faculty, who have inculcated in me, a strong research mindset, curiosity and intrinsic capability to pursue this subject. Lastly, I would like to thank St. Xavier’s College for the opportunity to prepare a dissertation project paper on a topic of my choice, as well as for imbibing in me a drive to polish my research mindset. 
+	\vfill \null 
+	
+	% References
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{section}{References} 
+	
+	%\Large \textbf{References} 
+	\nocite{*}
+	\bibliographystyle{plain}
+	\bibliography{Project}
+	
+\end{document}

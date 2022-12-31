@@ -1,0 +1,332 @@
+\documentclass{beamer}
+
+\usepackage{ragged2e, multirow}
+\hypersetup{pdfpagemode = FullScreen}
+
+% Theme & Font
+\usetheme{AnnArbor}
+\usefonttheme{serif}
+
+% Margins
+\setbeamersize{text margin left=25pt,text margin right=25pt}
+
+% Colors
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+
+% Showing the path
+\AtBeginSubsection[]
+{
+	\begin{frame}
+		\frametitle{Next Topic}
+		\tableofcontents[currentsection, currentsubsection]
+	\end{frame}
+}
+
+\title[Cauchy Distribution]{\textbf{Importance of Cauchy Distribution \\ in the Field of Statistics}}
+\subtitle{\textbf{A Descriptive Study}}
+\author[Session: 2019 - 2022]{\textbf{Anik Chakraborty} (443) \\[3pt] \footnotesize \textbf{Registration No.:} A01-1112-0838-19}
+\institute[]{\normalsize \textbf{Supervisor:} Prof. Ayan Chandra}
+\date[May 04, 2022]{\footnotesize St. Xavier's College (Autonomous), Kolkata}
+\titlegraphic{\includegraphics[width=0.12\linewidth] {College_Logo.png}}
+
+\begin{document}
+	\frame \titlepage     % Title Slide
+	
+	\section*{DISSERTATION}
+	\subsection*{HSTDS6043D}
+	\begin{frame}{\textbf{Outline of talk}}
+		\tableofcontents
+	\end{frame}
+
+	\section{Motivation}
+	\section*{Motivation of} \subsection*{the Study}
+	\begin{frame}
+		\begin{block}{Objectives} \\
+			\onslide<2->{Our aim of this project is to -} \\[5pt]
+			\begin{itemize}
+				\item<2-> study some unique features of Cauchy Distribution 
+				\item<3-> understand the difference between Cauchy and Normal
+				\item<4-> learn the behaviour of Cauchy in Statistical Inference
+			\end{itemize} \\[15pt]
+		\end{block}
+	\onslide<5->{
+		\begin{block}{Importance} \\[10pt] \justifying
+			\begin{itemize}
+				\item Provides counter examples to some well known results \\[8pt]
+				\item<6-> Testing problems apart from Normality assumptions \\[8pt]
+				\item<7-> It has applications in mechanical and electrical theory, physical anthropology, measurement problems, risk and financial analysis. 
+			\end{itemize} \\[15pt]
+		\end{block}}
+	\end{frame}
+	
+	\section{Background}
+	\subsection{Genesis and Development}
+	\begin{frame}[t]{Background} \\[10pt]
+		\begin{itemize}
+			\item First idea developed by Sim\'eon Denis Poisson 
+			\item<2-> Named after Augustin-Louis Cauchy
+			\item<3-> Special case of `Witch of Agnesi' \vfill
+			\begin{columns}[onlytextwidth]
+				\column{0.45\textwidth}
+				\onslide<4->{\includegraphics[width=1.3\linewidth] {01_genesis.jpeg}}
+				\column{0.4\textwidth} \centering
+				\onslide<4->{Graph of the function \(\frac{k}{x^2+a^2}\) for different values of `\(k\)' and `\(a\)'}
+			\end{columns}
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Probability Law}
+	\begin{frame}[t]{Density and Distribution Function}
+		The Cauchy distribution with location parameter `\(\mu\)' (\(\mu\in\mathbb{R}\)) and scale parameter `\(\sigma\)' (\(\sigma>0\)) is denoted by \(C(\mu, \sigma)\). \vfill
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\onslide<2->{
+			\begin{block}{PDF of \(C(\mu, \sigma)\)}
+				\[\frac{1}{\pi}\cdot\frac{\sigma}{\left\{\sigma ^2+(x-\mu)^2\right\}},\quad x\in\mathbb{R}\]
+			\end{block}}
+			\vspace{10pt}
+			\onslide<4->{
+			\begin{block}{CDF of \(C(\mu, \sigma)\)}
+				\[\frac{1}{2}+\frac{1}{\pi}\tan^{-1}\left(\frac{x-\mu}{\sigma}\right),\quad x\in\mathbb{R}\]
+			\end{block}}
+			\column{0.45\textwidth}
+			\onslide<3->{\includegraphics[width=\linewidth]{02_PDF.jpeg}}
+			\onslide<5->{\includegraphics[width=\linewidth]{03_CDF.jpeg}}
+		\end{columns}
+		\null\vfill
+	\end{frame}
+
+	\section{Properties}
+	\subsection{Nature of the Curve}
+	\begin{frame}[t]{Shape and Graphical Behaviour} \\[10pt]
+		\justifying If we plot the density of the Cauchy PDF, it can be observed that the graph is - \\[10pt]
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\begin{itemize}
+				\item<2,5-> Bell shaped \\[10pt]
+				\item<3,5-> Symmetric \\[10pt]
+				\item<4-> The graph has \textbf{Thick Tails}
+			\end{itemize}
+		\column{0.45\textwidth} \\[20pt]
+		\includegraphics[width=\linewidth]{04_NoC.jpeg}
+		\end{columns} \\[20pt]
+	\onslide<5->{Also, it is symmetric about the line \(x=\mu\).}	
+	\end{frame}
+
+	\subsection{Non-existence of Moments}
+	\begin{frame}{There is no `moment' for Cauchy!} %\\[10pt]
+		\justifying The reasons behind non-existence of moments - \\[10pt]
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\begin{itemize}
+				\item<2-> High propensity of producing outliers \\[10pt]
+				\item<2-> The probability in the tails are higher
+			\end{itemize}
+			\column{0.45\textwidth}
+			\onslide<3->{
+			\begin{figure}
+				\includegraphics[width=\linewidth]{05_TrC.jpeg}
+		\end{figure}}
+		\end{columns} \\[20pt]
+		\onslide<3->{Under truncated set-up the probability becomes null beyond some cut-point. That is why the moments become finite.} 
+	\end{frame}
+	
+	\subsection{Other Characteristics}
+	\begin{frame}{Mode and Quantiles}
+		Consider, \(C(\mu, \sigma)\) distribution. 
+		\begin{columns}[onlytextwidth]
+			\column{0.43\textwidth}
+			\begin{block}{Mode} \\[10pt]
+				\begin{itemize}
+					\item \underline{Unimodal} distribution. \\[10pt]
+					\item<2-> Mode is at \(x=\mu\) \\[10pt]
+					\item<3-> Modal value: \(\frac{1}{\pi \sigma}\) 
+				\end{itemize} \\[10pt]
+			\end{block}
+			\column{0.48\textwidth}
+			\onslide<4->{\begin{block}{Quantiles} \\[10pt]
+				\begin{itemize}
+					\item \underline{Symmetric} distribution. \\[10pt]
+					\item<5-> \(\xi_p = \mu+\sigma\tan\left[\pi \left(p-\frac{1}{2}\right)\right]\)  \\[10pt]
+					\item<6-> Median: \(\xi_{\frac{1}{2}}=\mu\) 
+				\end{itemize} \\[10pt]
+			\end{block}}
+		\end{columns} \\[20pt]
+		\onslide<7->{For the above Cauchy distribution, \(Q_1=\mu-\sigma\) and \(Q_3=\mu+\sigma\). So, the quartile deviation becomes \(\sigma\). \\[5pt]
+		Hence, the parameter `\(\sigma\)' can also be interpreted from this point.}
+	\end{frame}
+
+	\begin{frame}[t]{Points of Inflection} \\[10pt]
+		\justifying The point on a curve where it changes from concavity to convexity or vice-versa is called a point of inflection. \\[20pt]
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\onslide<2->{For \(C(\mu, \sigma)\) the points of inflection are \(\left(\mu-\frac{\sigma} {\sqrt{3}},\frac{3}{4\pi \sigma}\right)\) and \(\left(\mu+\frac{\sigma}{\sqrt{3}}, \frac{3}{4\pi \sigma}\right)\).}
+			\column{0.45\textwidth}
+			\onslide<3->{\includegraphics[width=\linewidth]{06_PoI.jpeg}}
+		\end{columns} \\[20pt]
+		\onslide<3->{For Standard Cauchy distribution these points are (-0.577, 0.239) and (0.577, 0.239).}
+	\end{frame}
+
+	\subsection*{Sampling Properties}
+	\begin{frame}{Inverse of a Cauchy is also a Cauchy!}
+		\(X\sim\mathit{C}(0,1)\implies \frac{1}{X} \sim\mathit{C}(0,1)\) 
+		\onslide<2->{
+		\begin{figure} \centering
+			\includegraphics[width=0.9\linewidth]{07_Inv.jpeg}	
+		\end{figure}}
+	\end{frame}
+
+	\begin{frame}{A Unique Property}
+		\(X,Y\stackrel{iid}{\sim}\mathit{C}(0,1) \implies X+Y\stackrel{D}{\equiv}2X\sim \mathit{C}(0,2)\)
+		\onslide<2->{
+		\begin{figure} \centering
+			\includegraphics[width=0.7\linewidth]{08_Idt.jpeg}	
+		\end{figure}}
+		\onslide<3->{This is also a justification for the non-existence of variance of this distribution.}
+	\end{frame}
+
+	\section{Comparison of Cauchy and Normal}
+	\subsection*{Property Based Comparison}
+	\begin{frame}[t]{Graphical Approach} \justifying
+		Let us consider two random variables \(X\) and \(Y\) where, \(X\sim N(0,1)\) and \(Y\sim C(0,1)\) with PDFs \(f_X\) and \(f_y\), respectively. \\[5pt]
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\begin{itemize} \justifying
+				\item<2-> \(\max\limits_{t\in\mathbb{R}}f_X(t) =\frac{1} {\sqrt{2\pi}}=f_X(0)\) \\ \(\max \limits_{t\in \mathbb{R}}f_Y(t)=\frac{1} {\pi}=f_Y(0)\)\\[5pt] \(\implies f_X(0)>f_Y(0)\) \\[8pt]
+				\item<3-> Median and Mode exists for both but Mean does not. \\[5pt]
+				\item<4-> \(f_X,f_y\to0\) but \(f_X\) goes more rapidly as \(|t|\to\infty\) \\[7pt]
+				\item<5-> \(P(|X|>k)<P(|Y|>k)\) \\ \((\forall\,k>0)\)
+			\end{itemize}
+			\column{0.45\textwidth} \\[15pt]
+			\includegraphics[width=\linewidth]{09_CN.jpeg}	
+		\end{columns}
+	\end{frame}
+
+	\subsection*{Simulation Based Comparison}
+	\begin{frame}
+		\begin{block}{Purpose} \justifying
+			Consider, \(C(\mu,1)\). Now to test, \(H_0:\mu=0\) against \(H_1:\mu\neq0\)
+		\end{block}
+		\begin{columns}[onlytextwidth]
+			\column{0.5\textwidth}
+			\onslide<2->{
+			\begin{block}{Result} \justifying
+				\begin{table}[H] \centering
+					\caption{\textbf{Empirical Levels}}
+					\label{emp.lvl}
+					\renewcommand{\arraystretch}{1.1}
+					\begin{tabular}{|r|r|r|}
+						\hline
+						\textbf{Size} & \textbf{Cauchy} & \textbf{Normal}\\
+						\hline
+						5 & 0.529 & 0.037\\
+						\hline
+						10 & 0.661 & 0.054\\
+						\hline
+						25 & 0.745 & 0.055\\
+						\hline
+						50 & 0.833 & 0.046\\
+						\hline
+						100 & 0.878 & 0.055\\
+						\hline
+						200 & 0.908 & 0.051\\
+						\hline
+						500 & 0.949 & 0.042\\
+						\hline
+						1000 & 0.960 & 0.050\\
+						\hline
+					\end{tabular}
+				\end{table}
+			\end{block}}
+			\column{0.4\textwidth} \justifying 
+			\onslide<3->{From the Table, it seems that, under Normal setup, the Cauchy distribution is behaving badly.}
+		\end{columns}
+	\end{frame}
+
+	\section{Estimation Methods}
+	\subsection{Unbiasedness}
+	\begin{frame}{Unbiased Estimator of Location parameter}
+		\justifying In usual method, we cannot find any unbiased estimator of the location parameter \(\mu\) for the \(C(\mu,\sigma)\) distribution though there are some estimators which are unbiased. \onslide<2->{They are - \\[5pt]
+		\begin{itemize}
+			\item Sample median \(\left(X_{(k)}\right)\) when sample size is odd [\(n=2k+1\)] \\[10pt]
+			\item<3-> Sample mid-range \(\left(\frac{X_{(1)}+ X_{(n)}}{2}\right)\) \\[10pt]
+		\end{itemize}}
+		\onslide<4->{Some other estimators which are unbiased for location are \textbf{Quick Estimator} which is the weighted average of some suitable order statistics, \textbf{Sample Trimmed Mean} (using central 24\% of total observations).} \\[10pt]
+		\onslide<5->{In all the above cases our target is to minimize the Asymptotic Relative Efficiency.} 
+	\end{frame} 
+
+	\subsection{Consistency}
+	\begin{frame}{Consistent Estimator for the Location parameter} \justifying
+		As the population mean does not exist, sample mean do not converge to a finite value. 
+		\onslide<2->{
+		\begin{figure} \centering
+			\includegraphics[width=0.7\linewidth]{Sim_02.jpeg}	
+		\end{figure}}
+		\onslide<3->{From the graph, it follows that sample median is consistent for location.}
+	\end{frame}
+	
+	\subsection{Other Methods}
+	\begin{frame}{M.L.E. and C.R. Inequality} 
+		\onslide<2->{
+		\begin{block}{Maximum Likelihood Estimation} \justifying
+			Under Cauchy population, the location parameter cannot be estimated in a closed form using method of Maximum Likelihood. \\[5pt]
+			Hence, we find the M.L.E. by iterative method to a specified level of convergence. 
+		\end{block}} \\[7pt]
+		\onslide<3->{
+		\begin{block}{Cramer-Rao Inequality} \justifying
+			The Cramer-Rao lower bound for Cauchy is \(\frac{2}{n}\). \\[5pt]
+			As the Cauchy distribution does not belong to the `One Parameter Exponential Family', the Cramer-Rao lower bound is not attainable lower bound and hence no MVBUE for any parametric function does not exist. \\[10pt]
+		\end{block}}
+	\end{frame}
+
+%	\section{Conclusion} \section*{}
+%	\begin{frame}{\textbf{Conclusion}} \justifying \footnotesize
+%		Cauchy distibution is a huge topic. Here, we considered some of its interesting properties along with different estimation procedures briefly in analytical and graphical approach. While doing the project, we observe that, estimation of the location parameter of the Cauchy distribution is not an easy task, be it unbiasedness or maximum likelihood estimation as we cannot use any moment estimator. \\[10pt]
+%		In one hand, the thick tails of this distribution make it an `outlier producing distribution' while on the other hand as the moment estimates cannot be found we can indulge ourselves in quantile measures only and study their properties thoroughly which is a good aspect indeed. \\[10pt]
+%		Thus, there are many future aspects of this project as we can dive deep into the estimation for Cauchy distribution. There are further scopes of doing research based projects on the impact of Cauchy distribution as one can try to estimate the scale parameter, multivariate Cauchy parameters, testing procedures and confidence intervals etc. 
+%	\end{frame}
+
+	\section{Conclusion} \section*{}
+	\begin{frame}{\textbf{Conclusion}} 
+		\begin{itemize} \justifying 
+			\item Estimation of the location parameter of the Cauchy distribution is not an easy task \\[8pt]
+			\item<2-> Thick tails of this distribution make it an `outlier producing distribution' \\[8pt]
+		\end{itemize}
+		\onslide<3->{
+		\begin{block}{Future Aspects}
+			\begin{itemize}
+				\item Indulging ourselves in quantile measures only and study their properties thoroughly \\[8pt]
+				\item<4-> Diving deep into the estimation theory for Cauchy distribution \\[8pt]
+				\item<5-> Estimating the scale parameter, multivariate Cauchy parameters, testing procedures and confidence intervals
+			\end{itemize}
+		\end{block}}
+	\end{frame}
+
+	\section*{Acknowledgement}
+	\subsection*{References}
+	\begin{frame}{\textbf{Acknowledgement}}
+		\justifying 
+		I would like to express my special gratitude to  - 
+		\begin{itemize}
+			\item Father Principal Rev. Dr. Dominic Savio, Sj
+			\item St. Xavier's College (Autonomous), Kolkata
+			\item Department of Statistics, St. Xavier's College, Kolkata
+			\item Professor Ayan Chandra
+			\item Parents and friends
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{\textbf{References}}
+		\scriptsize
+		\nocite{*}
+		\bibliographystyle{plain}
+		\bibliography{Project}
+	\end{frame}
+	
+	% Slide: Thank You
+	\section*{}
+	\begin{frame} \begin{center}
+		\Huge \textsc{\textbf{Thank You}}
+	\end{center} \end{frame}
+\end{document}
+
